@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>Test.md</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/serif.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+    <link rel="stylesheet" href="./_assets/custom.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section data-markdown data-separator="\r?\n---\r?\n" data-separator-vertical="\r?\n----\r?\n">
+          <textarea data-template>
+            
+
+# 主页
+
+> 这是一个测试文档的主页，我将在这里测试 `reveal-md` 的各种功能
+
+
+
+---
+
+<div class="middle center">
+<div style="width: 100%">
+<font style="font-weight: 700;font-size: 50px">Part 1</font>
+
+接下来将进入此 Slides 的 part 1 部分
+</div>
+</div>
+
+----
+
+### Part 1.1
+
+列表格式
+
+- Point 1
+- Point 2
+
+----
+
+### Part 1.2
+
+**Table** 格式
+
+| 字符 | 功能       |
+| ---- | ---------- |
+| `?`  | 零次或一次 |
+| `+`  | 一次或多次 |
+| `*`  | 零次或多次 |
+
+*<font color='orange'> Markdown 表格</font>*
+
+Note: 这是正则表达式哦
+
+----
+
+### Part 1.3
+
+代码块高亮：
+
+```python [1|2-5]
+import pwntools
+p.process([nc,127.0.0.1,721])
+p.sendafter(b'这是什么好玩的东西哦',b'是新游戏哦')
+pause()
+p.interactive()
+```
+
+<font size="3" color='cyan'>此处打开演讲者模式有惊喜哦~</font>
+
+Note: Surprise!!!
+
+---
+
+
+<div class="middle center">
+<div style="width: 100%">
+<font style="font-weight: 700;font-size: 50px">Part 2</font>
+
+终于来到 Part 2 了喵
+</div>
+</div>
+
+----
+<!-- .slide: data-background="bg.png" -->
+
+### 测试背景图片
+
+有点失败，在 `custom.css` 中调整不好，而且尺寸不合适
+
+
+
+
+
+
+
+          </textarea>
+        </section>
+      </div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./mermaid/dist/mermaid.min.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        highlight: {
+          highlightOnLoad: false
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"center":false,"width":1000,"height":700,"margin":0.04,"transition":"slide","transitionSpeed":"fast","slideNumber":"c/t","_":[".\\test.md"],"static":"static-dir"}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+      Reveal.addEventListener('ready', function (event) {
+        const blocks = Reveal.getRevealElement().querySelectorAll('pre code:not(.mermaid)');
+        const hlp = Reveal.getPlugin('highlight');
+        blocks.forEach(hlp.highlightBlock);
+      });
+    </script>
+
+    <script>
+      const mermaidOptions = extend({ startOnLoad: false }, {});
+      mermaid.startOnLoad = false;
+      mermaid.initialize(mermaidOptions);
+      const cb = function (event) { mermaid.init(mermaidOptions, '.stack.present>.present pre code.mermaid'); };
+      Reveal.addEventListener('ready', cb);
+      Reveal.addEventListener('slidetransitionend', cb);
+    </script>
+  </body>
+</html>
