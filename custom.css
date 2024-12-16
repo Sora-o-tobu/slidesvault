@@ -183,10 +183,6 @@ html.print-pdf .reveal pre code {
   font-family: var(--r-code-font) !important;
 }
 
-/**
- * Modified from https://github.com/sivan/heti
- */
-
 .reveal heti-spacing {
   display: inline;
 }

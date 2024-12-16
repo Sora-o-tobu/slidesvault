@@ -25,7 +25,6 @@ revealOptions:
 <div class="middle center">
 <div style="width: 100%">
 <font style="font-weight: 700;font-size: 50px">Part 1</font>
-
 接下来将进入此 Slides 的 part 1 部分
 </div>
 </div>
@@ -90,7 +89,6 @@ Note: Surprise!!!
 ### 测试背景图片
 
 有点失败，在 `custom.css` 中调整不好，而且尺寸不合适
-
 
 
 
